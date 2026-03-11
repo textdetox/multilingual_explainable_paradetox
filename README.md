@@ -24,7 +24,7 @@ Abu Dhabi, UAE · January 19–24, 2025
 
 ## Authors
 
-[Daryna Dementieva](https://huggingface.co/dardem)<sup>1</sup>, [Nikolay Babakov](https://huggingface.co/NiGuLa)<sup>2</sup>, Amit Ronen<sup>3</sup>, Abinew Ali Ayele<sup>4,5</sup>, [Naquee Rizwan](https://huggingface.co/nrizwan)<sup>6</sup>, [Florian Schneider](https://huggingface.co/floschne)<sup>4</sup>, [Xintong Wang](https://huggingface.co/XintongCMLer)<sup>4</sup>, Seid Muhie Yimam<sup>4</sup>, [Daniil Moskovskiy](https://huggingface.co/etomoscow)<sup>8,9</sup>, [Elisei Stakovskii](https://huggingface.co/EIStakovskii)<sup>10</sup>, Eran Kaufman<sup>3</sup>, Ashraf Elnagar<sup>7</sup>, Animesh Mukherjee<sup>6</sup>, Alexander Panchenko<sup>8,9</sup>
+[Daryna Dementieva](https://huggingface.co/dardem)<sup>1</sup>, [Nikolay Babakov](https://huggingface.co/NiGuLa)<sup>2</sup>, Amit Ronen<sup>3</sup>, Abinew Ali Ayele<sup>4,5</sup>, Naquee Rizwan<sup>6</sup>, Florian Schneider<sup>4</sup>, Xintong Wang<sup>4</sup>, Seid Muhie Yimam<sup>4</sup>, Daniil Moskovskiy<sup>8,9</sup>, Elisei Stakovskii<sup>10</sup>, Eran Kaufman<sup>3</sup>, Ashraf Elnagar<sup>7</sup>, Animesh Mukherjee<sup>6</sup>, Alexander Panchenko<sup>8,9</sup>
 
 <sup>1</sup>TU Munich · <sup>2</sup>Univ. of Santiago de Compostela · <sup>3</sup>Shenkar College · <sup>4</sup>Univ. of Hamburg · <sup>5</sup>Bahir Dar Univ. · <sup>6</sup>IIT Kharagpur · <sup>7</sup>Univ. of Sharjah · <sup>8</sup>Skoltech · <sup>9</sup>AIRI · <sup>10</sup>UNC Chapel Hill
 
@@ -38,24 +38,7 @@ We extend parallel text detoxification to **9 languages** (EN, RU, UK, ES, DE, Z
 
 ## Overview
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                                                                        │
-│  I) Multilingual          II) Explain Toxicity      III) Explain      │
-│     ParaDetox  📝              with LLM 🔎               Detoxif. 🔎  │
-│                                                                        │
-│   EN RU UK ES                Toxicity Level          Tone             │
-│   DE ZH AR HI AM             Tone · Language         Language Type    │
-│                               Implied Sentiment       Sentiment        │
-│                                                                        │
-│  IV) Chain-of-Thought Detoxification 🔗                               │
-│                                                                        │
-│  Input ──► Cluster Analysis ──► CoT Prompt ──► Detoxified Output     │
-│            (K-means on                                                 │
-│             descriptive features)                                      │
-│                                                                        │
-└──────────────────────────────────────────────────────────────────────┘
-```
+![image](Multilingual_Explainable_TextDetox.png)
 
 **Example detoxifications across new languages:**
 
@@ -299,19 +282,35 @@ If you use our data, models, or methods, please cite:
 
 ```bibtex
 @inproceedings{dementieva-etal-2025-multilingual,
-    title     = "{Multilingual and Explainable Text Detoxification with Parallel Corpora}",
-    author    = "Dementieva, Daryna and Babakov, Nikolay and Ronen, Amit and
-                 Ayele, Abinew Ali and Rizwan, Naquee and Schneider, Florian and
-                 Wang, Xintong and Yimam, Seid Muhie and Moskovskiy, Daniil and
-                 Stakovskii, Elisei and Kaufman, Eran and Elnagar, Ashraf and
-                 Mukherjee, Animesh and Panchenko, Alexander",
+    title = "Multilingual and Explainable Text Detoxification with Parallel Corpora",
+    author = "Dementieva, Daryna  and
+      Babakov, Nikolay  and
+      Ronen, Amit  and
+      Ayele, Abinew Ali  and
+      Rizwan, Naquee  and
+      Schneider, Florian  and
+      Wang, Xintong  and
+      Yimam, Seid Muhie  and
+      Moskovskiy, Daniil  and
+      Stakovskii, Elisei  and
+      Kaufman, Eran  and
+      Elnagar, Ashraf  and
+      Mukherjee, Animesh  and
+      Panchenko, Alexander",
+    editor = "Rambow, Owen  and
+      Wanner, Leo  and
+      Apidianaki, Marianna  and
+      Al-Khalifa, Hend  and
+      Eugenio, Barbara Di  and
+      Schockaert, Steven",
     booktitle = "Proceedings of the 31st International Conference on Computational Linguistics",
-    month     = jan,
-    year      = "2025",
-    address   = "Abu Dhabi, UAE",
+    month = jan,
+    year = "2025",
+    address = "Abu Dhabi, UAE",
     publisher = "Association for Computational Linguistics",
-    url       = "https://aclanthology.org/2025.coling-main.535/",
-    pages     = "7998--8025",
+    url = "https://aclanthology.org/2025.coling-main.535/",
+    pages = "7998--8025",
+    abstract = "Even with various regulations in place across countries and social media platforms (Government of India, 2021; European Parliament and Council of the European Union, 2022), digital abusive speech remains a significant issue. One potential approach to address this challenge is automatic text detoxification, a text style transfer (TST) approach that transforms toxic language into a more neutral or non-toxic form. To date, the availability of parallel corpora for the text detoxification task (Logacheva et al., 2022; Atwell et al., 2022; Dementieva et al., 2024a) has proven to be crucial for state-of-the-art approaches. With this work, we extend parallel text detoxification corpus to new languages{---}German, Chinese, Arabic, Hindi, and Amharic{---}testing in the extensive multilingual setup TST baselines. Next, we conduct the first of its kind an automated, explainable analysis of the descriptive features of both toxic and non-toxic sentences, diving deeply into the nuances, similarities, and differences of toxicity and detoxification across 9 languages. Finally, based on the obtained insights, we experiment with a novel text detoxification method inspired by the Chain-of-Thoughts reasoning approach, enhancing the prompting process through clustering on relevant descriptive attributes."
 }
 ```
 
